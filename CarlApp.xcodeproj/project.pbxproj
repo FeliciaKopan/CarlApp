@@ -39,6 +39,7 @@
 		D03BAD822CC92FC100B86D37 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BAD812CC92FC100B86D37 /* LoadingView.swift */; };
 		D03BAD852CCA4A9C00B86D37 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D03BAD842CCA4A9C00B86D37 /* Lottie */; };
 		D03BAD882CCA4C4A00B86D37 /* loadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = D03BAD872CCA4C3E00B86D37 /* loadingAnimation.json */; };
+		D03BAD8B2CCBA2CF00B86D37 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BAD8A2CCBA2CF00B86D37 /* LocationService.swift */; };
 		D093810A2C8F3275009693AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09381092C8F3275009693AA /* AppDelegate.swift */; };
 		D093810C2C8F3275009693AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093810B2C8F3275009693AA /* SceneDelegate.swift */; };
 		D093810E2C8F3275009693AA /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093810D2C8F3275009693AA /* HomeScreenViewController.swift */; };
@@ -61,6 +62,7 @@
 		D03BAD7E2CC8EB1B00B86D37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D03BAD812CC92FC100B86D37 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D03BAD872CCA4C3E00B86D37 /* loadingAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = loadingAnimation.json; sourceTree = "<group>"; };
+		D03BAD8A2CCBA2CF00B86D37 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		D09381062C8F3275009693AA /* CarlApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarlApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09381092C8F3275009693AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D093810B2C8F3275009693AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		D03BAD892CCBA2A600B86D37 /* LocationService */ = {
+			isa = PBXGroup;
+			children = (
+				D03BAD8A2CCBA2CF00B86D37 /* LocationService.swift */,
+			);
+			path = LocationService;
+			sourceTree = "<group>";
+		};
 		D09380FD2C8F3275009693AA = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +174,7 @@
 		D09381082C8F3275009693AA /* CarlApp */ = {
 			isa = PBXGroup;
 			children = (
+				D03BAD892CCBA2A600B86D37 /* LocationService */,
 				D03BAD802CC92FAB00B86D37 /* LoadingIndicator */,
 				D03BAD602CAFE31100B86D37 /* Models */,
 				D03BAD792CC1120300B86D37 /* LoginScreen */,
@@ -338,6 +349,7 @@
 				D09381282C8F39EB009693AA /* CollectionViewCell.swift in Sources */,
 				D093810A2C8F3275009693AA /* AppDelegate.swift in Sources */,
 				D0E598362CA2F560006A8EBD /* RadioViewController.swift in Sources */,
+				D03BAD8B2CCBA2CF00B86D37 /* LocationService.swift in Sources */,
 				D093810C2C8F3275009693AA /* SceneDelegate.swift in Sources */,
 				D0E598332C9DBA7C006A8EBD /* CallViewController.swift in Sources */,
 				D03BAD742CB7D49000B86D37 /* ImageDownloader.swift in Sources */,

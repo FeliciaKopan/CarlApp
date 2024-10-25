@@ -7,11 +7,13 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var locationService: LocationService?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -20,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             print("Failed to configure Firebase.")
         }
+        if let userID = Auth.auth().currentUser?.uid {
+            locationService = LocationService(userID: userID)
+        }
+
         return true
     }
 

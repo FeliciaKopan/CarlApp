@@ -15,13 +15,19 @@ class LoginViewController: UIViewController {
     private let passwordTextField = UITextField()
     private let loginButton = UIButton()
 
+    private lazy var loginButtonBottomConstraint = loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -24)
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
+        registerForKeyboardNotifications()
+        setupTapGesture()
     }
 
     private func setupViews() {
+        view.isUserInteractionEnabled = true
+
         emailTextField.placeholder = "Email"
         emailTextField.borderStyle = .roundedRect
         emailTextField.autocapitalizationType = .none
@@ -54,9 +60,9 @@ class LoginViewController: UIViewController {
 
         view.addSubview(loginButton, constraints: [
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -24),
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            loginButton.heightAnchor.constraint(equalToConstant: 60)
+            loginButton.heightAnchor.constraint(equalToConstant: 60),
+            loginButtonBottomConstraint
         ])
     }
 
@@ -179,5 +185,41 @@ class LoginViewController: UIViewController {
         }
 
         signInUser(email: email, password: password)
+    }
+
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    private func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            loginButtonBottomConstraint.constant = -keyboardSize.height - 24
+            UIView.animate(withDuration: 0.25) { [weak self] in
+                self?.view.layoutIfNeeded()
+            }
+        }
+    }
+
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        loginButtonBottomConstraint.constant = -24
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
+    }
+
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    // MARK: - Deinit
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

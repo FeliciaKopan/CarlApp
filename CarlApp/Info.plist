@@ -4,6 +4,10 @@
 <dict>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>This app requires access to your Apple Music to play music from your playlist</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to update in Firebase.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need your location to update in Firebase even when the app is in the background.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
